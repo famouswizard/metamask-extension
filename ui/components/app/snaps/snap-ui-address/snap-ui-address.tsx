@@ -47,6 +47,13 @@ export const SnapUIAddress: React.FunctionComponent<SnapUIAddressProps> = ({
   const useBlockie = useSelector(getUseBlockie);
   const { displayName: addressName } = useFallbackDisplayName(address);
 
+  let showAddressName = displayName;
+  // If displaying address name is requested, but the address name
+  // is not available, then ignore the flag and use default address
+  if (displayName && addressName?.startsWith('0x')) {
+    showAddressName = false;
+  }
+
   // For EVM addresses, we make sure they are checksummed.
   const transformedAddress =
     parsed.chain.namespace === 'eip155'
@@ -73,12 +80,20 @@ export const SnapUIAddress: React.FunctionComponent<SnapUIAddressProps> = ({
             style={{ display: 'flex' }}
           />
         ))}
-      {displayName ? (
-        <Text variant={TextVariant.inherit} color={TextColor.inherit}>
+      {showAddressName ? (
+        <Text
+          variant={TextVariant.bodyMd}
+          color={TextColor.inherit}
+          style={{ lineBreak: 'anywhere' }}
+        >
           {addressName}
         </Text>
       ) : (
-        <Text variant={TextVariant.inherit} color={TextColor.inherit}>
+        <Text
+          variant={TextVariant.bodyMd}
+          color={TextColor.inherit}
+          style={{ lineBreak: 'anywhere' }}
+        >
           {formattedAddress}
         </Text>
       )}
