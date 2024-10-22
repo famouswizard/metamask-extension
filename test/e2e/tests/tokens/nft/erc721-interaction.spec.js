@@ -33,7 +33,7 @@ describe('ERC721 NFTs testdapp interaction', function () {
         await driver.findClickableElement('#deployButton');
 
         // mint NFTs
-        await driver.fill('#mintAmountInput', '5');
+        await driver.pasteIntoField('#mintAmountInput', '5');
         await driver.clickElement({ text: 'Mint', tag: 'button' });
 
         // Notification
@@ -96,7 +96,7 @@ describe('ERC721 NFTs testdapp interaction', function () {
         await driver.findClickableElement('#deployButton');
 
         // mint NFT
-        await driver.fill('#mintAmountInput', '5');
+        await driver.pasteIntoField('#mintAmountInput', '5');
         await driver.clickElement({ text: 'Mint', tag: 'button' });
 
         // Notification
@@ -128,11 +128,11 @@ describe('ERC721 NFTs testdapp interaction', function () {
         assert.equal(await nftsMintStatus.isDisplayed(), true);
 
         // watch 3 of the nfts
-        await driver.fill('#watchNFTInput', '1');
+        await driver.pasteIntoField('#watchNFTInput', '1');
         await driver.clickElement({ text: 'Watch NFT', tag: 'button' });
-        await driver.fill('#watchNFTInput', '2');
+        await driver.pasteIntoField('#watchNFTInput', '2');
         await driver.clickElement({ text: 'Watch NFT', tag: 'button' });
-        await driver.fill('#watchNFTInput', '3');
+        await driver.pasteIntoField('#watchNFTInput', '3');
         await driver.clickElement({ text: 'Watch NFT', tag: 'button' });
 
         await driver.switchToWindowWithTitle(WINDOW_TITLES.Dialog);
@@ -161,12 +161,12 @@ describe('ERC721 NFTs testdapp interaction', function () {
         assert.equal(nftsListItemsFirstCheck.length, 6);
 
         await driver.switchToWindowWithTitle(WINDOW_TITLES.TestDApp);
-        await driver.fill('#watchNFTInput', '4');
+        await driver.pasteIntoField('#watchNFTInput', '4');
 
         await driver.clickElement({ text: 'Watch NFT', tag: 'button' });
-        await driver.fill('#watchNFTInput', '5');
+        await driver.pasteIntoField('#watchNFTInput', '5');
         await driver.clickElement({ text: 'Watch NFT', tag: 'button' });
-        await driver.fill('#watchNFTInput', '6');
+        await driver.pasteIntoField('#watchNFTInput', '6');
         await driver.clickElement({ text: 'Watch NFT', tag: 'button' });
 
         await driver.waitUntilXWindowHandles(3);
@@ -217,7 +217,7 @@ describe('ERC721 NFTs testdapp interaction', function () {
         await driver.findClickableElement('#deployButton');
 
         // mint NFT
-        await driver.fill('#mintAmountInput', '5');
+        await driver.pasteIntoField('#mintAmountInput', '5');
         await driver.clickElement({ text: 'Mint', tag: 'button' });
 
         // Notification
@@ -315,7 +315,7 @@ describe('ERC721 NFTs testdapp interaction', function () {
         await driver.findClickableElement('#deployButton');
 
         // Click Transfer
-        await driver.fill('#transferTokenInput', '1');
+        await driver.pasteIntoField('#transferTokenInput', '1');
         await driver.clickElement('#transferFromButton');
         await driver.switchToWindowWithTitle(WINDOW_TITLES.Dialog);
 

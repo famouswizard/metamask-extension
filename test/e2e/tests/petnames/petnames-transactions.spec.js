@@ -21,7 +21,7 @@ async function createDappSendTransaction(driver) {
 
 async function createWalletSendTransaction(driver, recipientAddress) {
   await openActionMenuAndStartSendFlow(driver);
-  await driver.fill(
+  await driver.pasteIntoField(
     'input[placeholder="Enter public address (0x) or domain name"]',
     recipientAddress,
   );

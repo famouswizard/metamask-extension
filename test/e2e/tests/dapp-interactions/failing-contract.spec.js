@@ -99,9 +99,9 @@ describe('Failing contract interaction on non-EIP1559 network', function () {
         // waits for deployed contract and calls failing contract method
         await driver.findClickableElement('#deployButton');
 
-        await driver.fill('#toInput', contractAddress);
-        await driver.fill('#amountInput', '0');
-        await driver.fill('#gasInput', '100');
+        await driver.pasteIntoField('#toInput', contractAddress);
+        await driver.pasteIntoField('#amountInput', '0');
+        await driver.pasteIntoField('#gasInput', '100');
 
         await driver.clickElement('#submitForm');
 

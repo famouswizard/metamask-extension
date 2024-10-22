@@ -71,7 +71,7 @@ describe('Send ETH to a 40 character hexadecimal address', function () {
         // Send ETH
         await openActionMenuAndStartSendFlow(driver);
         // Type address without hex prefix
-        await driver.fill(
+        await driver.pasteIntoField(
           'input[placeholder="Enter public address (0x) or domain name"]',
           nonHexPrefixedAddress,
         );
@@ -191,7 +191,7 @@ describe('Send ERC20 to a 40 character hexadecimal address', function () {
         await driver.clickElement('[data-testid="coin-overview-send"]');
 
         // Type address without hex prefix
-        await driver.fill(
+        await driver.pasteIntoField(
           'input[placeholder="Enter public address (0x) or domain name"]',
           nonHexPrefixedAddress,
         );

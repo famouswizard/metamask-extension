@@ -47,7 +47,7 @@ describe('Address Book', function () {
         assert.equal(recipientRowTitleString, 'Test Name 1');
         await driver.clickElement('.address-list-item__label');
 
-        await driver.fill('input[placeholder="0"]', '2');
+        await driver.pasteIntoField('input[placeholder="0"]', '2');
 
         await driver.clickElement({ text: 'Continue', tag: 'button' });
 

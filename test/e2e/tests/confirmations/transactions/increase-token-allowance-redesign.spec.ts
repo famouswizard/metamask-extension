@@ -163,7 +163,7 @@ export async function editSpendingCap(driver: Driver, newSpendingCap: string) {
   await driver.switchToWindowWithTitle(WINDOW_TITLES.Dialog);
   await driver.clickElement('[data-testid="edit-spending-cap-icon"');
 
-  await driver.fill(
+  await driver.pasteIntoField(
     '[data-testid="custom-spending-cap-input"]',
     newSpendingCap,
   );

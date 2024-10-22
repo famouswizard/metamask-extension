@@ -37,15 +37,15 @@ describe('Custom RPC history', function () {
           tag: 'button',
         });
 
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="network-form-network-name"]',
           networkName,
         );
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="network-form-chain-id"]',
           chainId.toString(),
         );
-        await driver.fill('[data-testid="network-form-ticker-input"]', symbol);
+        await driver.pasteIntoField('[data-testid="network-form-ticker-input"]', symbol);
 
         // Add rpc url
         const rpcUrlInputDropDown = await driver.waitForSelector(
@@ -139,7 +139,7 @@ describe('Custom RPC history', function () {
           tag: 'button',
         });
 
-        await driver.fill('[data-testid="network-form-chain-id"]', '1');
+        await driver.pasteIntoField('[data-testid="network-form-chain-id"]', '1');
 
         await driver.findElement({
           text: 'This Chain ID is currently used by the Ethereum Mainnet network.',
@@ -169,7 +169,7 @@ describe('Custom RPC history', function () {
           tag: 'button',
         });
 
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="network-form-chain-id"]',
           duplicateChainId,
         );

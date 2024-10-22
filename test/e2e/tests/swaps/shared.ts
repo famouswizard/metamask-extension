@@ -46,7 +46,7 @@ type SwapOptions = {
 
 export const buildQuote = async (driver: Driver, options: SwapOptions) => {
   await driver.clickElement('[data-testid="token-overview-button-swap"]');
-  await driver.fill(
+  await driver.pasteIntoField(
     'input[data-testid="prepare-swap-page-from-token-amount"]',
     options.amount.toString(),
   );
@@ -54,7 +54,7 @@ export const buildQuote = async (driver: Driver, options: SwapOptions) => {
   await driver.clickElement('[data-testid="prepare-swap-page-swap-to"]');
   await driver.waitForSelector('[id="list-with-search__text-search"]');
 
-  await driver.fill(
+  await driver.pasteIntoField(
     'input[id="list-with-search__text-search"]',
     options.swapTo || options.swapToContractAddress || '',
   );

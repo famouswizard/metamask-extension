@@ -49,7 +49,7 @@ describe('Import flow', function () {
 
         await driver.clickElement('[data-testid="import-token-button"]');
 
-        await driver.fill('input[placeholder="Search tokens"]', 'cha');
+        await driver.pasteIntoField('input[placeholder="Search tokens"]', 'cha');
 
         await driver.clickElement('.token-list__token_component');
         await driver.clickElement(

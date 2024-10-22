@@ -46,8 +46,8 @@ describe('AssetPickerSendFlow @no-mmi', function () {
         // Open the send flow
         openActionMenuAndStartSendFlow(driver);
 
-        await driver.fill('[data-testid="ens-input"]', RECIPIENT_ADDRESS_MOCK);
-        await driver.fill('.unit-input__input', '2');
+        await driver.pasteIntoField('[data-testid="ens-input"]', RECIPIENT_ADDRESS_MOCK);
+        await driver.pasteIntoField('.unit-input__input', '2');
 
         const isDest = 'dest';
         const buttons = await driver.findElements(

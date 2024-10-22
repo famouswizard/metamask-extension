@@ -41,7 +41,7 @@ describe('Add account', function () {
           '[data-testid="multichain-account-menu-popover-add-account"]',
         );
 
-        await driver.fill('[placeholder="Account 2"]', '2nd account');
+        await driver.pasteIntoField('[placeholder="Account 2"]', '2nd account');
         // needed to mitigate a race condition with the state update
         // there is no condition we can wait for in the UI
         await driver.delay(regularDelayMs);
@@ -88,7 +88,7 @@ describe('Add account', function () {
         await driver.clickElement(
           '[data-testid="multichain-account-menu-popover-add-account"]',
         );
-        await driver.fill('[placeholder="Account 2"]', '2nd account');
+        await driver.pasteIntoField('[placeholder="Account 2"]', '2nd account');
         // needed to mitigate a race condition with the state update
         // there is no condition we can wait for in the UI
         await driver.delay(regularDelayMs);
@@ -124,8 +124,8 @@ describe('Add account', function () {
           '[data-testid="import-srp__srp-word-0"]',
           TEST_SEED_PHRASE,
         );
-        await driver.fill('#password', 'correct horse battery staple');
-        await driver.fill('#confirm-password', 'correct horse battery staple');
+        await driver.pasteIntoField('#password', 'correct horse battery staple');
+        await driver.pasteIntoField('#confirm-password', 'correct horse battery staple');
 
         await driver.clickElement(
           '[data-testid="create-new-vault-submit-button"]',
@@ -170,7 +170,7 @@ describe('Add account', function () {
         await driver.clickElement(
           '[data-testid="multichain-account-menu-popover-add-account"]',
         );
-        await driver.fill('[placeholder="Account 2"]', '2nd account');
+        await driver.pasteIntoField('[placeholder="Account 2"]', '2nd account');
         // needed to mitigate a race condition with the state update
         // there is no condition we can wait for in the UI
         await driver.delay(regularDelayMs);
@@ -203,7 +203,7 @@ describe('Add account', function () {
           '[data-testid="multichain-account-menu-popover-action-button"]',
         );
         await driver.clickElement({ text: 'Import account', tag: 'button' });
-        await driver.fill('#private-key-box', testPrivateKey);
+        await driver.pasteIntoField('#private-key-box', testPrivateKey);
 
         await driver.clickElement(
           '[data-testid="import-account-confirm-button"]',

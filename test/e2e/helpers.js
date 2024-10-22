@@ -401,8 +401,8 @@ const importSRPOnboardingFlow = async (driver, seedPhrase, password) => {
   await driver.clickElement('[data-testid="import-srp-confirm"]');
 
   // create password
-  await driver.fill('[data-testid="create-password-new"]', password);
-  await driver.fill('[data-testid="create-password-confirm"]', password);
+  await driver.pasteIntoField('[data-testid="create-password-new"]', password);
+  await driver.pasteIntoField('[data-testid="create-password-confirm"]', password);
   await driver.clickElement('[data-testid="create-password-terms"]');
   await driver.clickElement('[data-testid="create-password-import"]');
   await driver.assertElementNotPresent('.loading-overlay');
@@ -448,8 +448,8 @@ const completeImportSRPOnboardingFlowWordByWord = async (
   await driver.clickElement('[data-testid="import-srp-confirm"]');
 
   // create password
-  await driver.fill('[data-testid="create-password-new"]', password);
-  await driver.fill('[data-testid="create-password-confirm"]', password);
+  await driver.pasteIntoField('[data-testid="create-password-new"]', password);
+  await driver.pasteIntoField('[data-testid="create-password-confirm"]', password);
   await driver.clickElement('[data-testid="create-password-terms"]');
   await driver.clickElement('[data-testid="create-password-import"]');
 
@@ -497,8 +497,8 @@ const onboardingChooseMetametricsOption = async (driver, option = false) => {
  */
 const onboardingCreatePassword = async (driver, password) => {
   // create password
-  await driver.fill('[data-testid="create-password-new"]', password);
-  await driver.fill('[data-testid="create-password-confirm"]', password);
+  await driver.pasteIntoField('[data-testid="create-password-new"]', password);
+  await driver.pasteIntoField('[data-testid="create-password-confirm"]', password);
   await driver.clickElement('[data-testid="create-password-terms"]');
   await driver.clickElement('[data-testid="create-password-wallet"]');
 };
@@ -529,9 +529,9 @@ const onboardingRevealAndConfirmSRP = async (driver) => {
   const finalWords = words.filter((str) => str !== '');
   assert.equal(finalWords.length, 12);
 
-  await driver.fill('[data-testid="recovery-phrase-input-2"]', finalWords[2]);
-  await driver.fill('[data-testid="recovery-phrase-input-3"]', finalWords[3]);
-  await driver.fill('[data-testid="recovery-phrase-input-7"]', finalWords[7]);
+  await driver.pasteIntoField('[data-testid="recovery-phrase-input-2"]', finalWords[2]);
+  await driver.pasteIntoField('[data-testid="recovery-phrase-input-3"]', finalWords[3]);
+  await driver.pasteIntoField('[data-testid="recovery-phrase-input-7"]', finalWords[7]);
 
   await driver.clickElement('[data-testid="confirm-recovery-phrase"]');
 
@@ -891,8 +891,8 @@ const sendScreenToConfirmScreen = async (
   quantity,
 ) => {
   await openActionMenuAndStartSendFlow(driver);
-  await driver.fill('[data-testid="ens-input"]', recipientAddress);
-  await driver.fill('.unit-input__input', quantity);
+  await driver.pasteIntoField('[data-testid="ens-input"]', recipientAddress);
+  await driver.pasteIntoField('.unit-input__input', quantity);
 
   // check if element exists and click it
   await driver.clickElementSafe({
@@ -910,8 +910,8 @@ const sendTransaction = async (
   isAsyncFlow = false,
 ) => {
   await openActionMenuAndStartSendFlow(driver);
-  await driver.fill('[data-testid="ens-input"]', recipientAddress);
-  await driver.fill('.unit-input__input', quantity);
+  await driver.pasteIntoField('[data-testid="ens-input"]', recipientAddress);
+  await driver.pasteIntoField('.unit-input__input', quantity);
 
   await driver.clickElement({
     text: 'Continue',
@@ -1000,7 +1000,7 @@ async function unlockWallet(
     await driver.navigate();
   }
 
-  await driver.fill('#password', WALLET_PASSWORD);
+  await driver.pasteIntoField('#password', WALLET_PASSWORD);
   await driver.press('#password', driver.Key.ENTER);
 
   if (options.waitLoginSuccess !== false) {

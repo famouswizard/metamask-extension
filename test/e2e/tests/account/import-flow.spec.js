@@ -118,7 +118,7 @@ describe('Import flow @no-mmi', function () {
         });
 
         // set account name
-        await driver.fill('[placeholder="Account 2"]', '2nd account');
+        await driver.pasteIntoField('[placeholder="Account 2"]', '2nd account');
         await driver.delay(regularDelayMs);
         await driver.clickElement({ text: 'Add account', tag: 'button' });
 
@@ -141,11 +141,11 @@ describe('Import flow @no-mmi', function () {
         // starts a send transaction
         await locateAccountBalanceDOM(driver, ganacheServer);
         await openActionMenuAndStartSendFlow(driver);
-        await driver.fill(
+        await driver.pasteIntoField(
           'input[placeholder="Enter public address (0x) or domain name"]',
           '0x2f318C334780961FB129D2a6c30D0763d9a5C970',
         );
-        await driver.fill('input[placeholder="0"]', '1');
+        await driver.pasteIntoField('input[placeholder="0"]', '1');
         // Continue to next screen
         await driver.clickElement({ text: 'Continue', tag: 'button' });
 
@@ -253,7 +253,7 @@ describe('Import flow @no-mmi', function () {
 
         // Imports Account 4 with private key
         await driver.findClickableElement('#private-key-box');
-        await driver.fill('#private-key-box', testPrivateKey1);
+        await driver.pasteIntoField('#private-key-box', testPrivateKey1);
         await driver.clickElement(
           '[data-testid="import-account-confirm-button"]',
         );
@@ -280,7 +280,7 @@ describe('Import flow @no-mmi', function () {
         );
         await driver.clickElement({ text: 'Import account', tag: 'button' });
         await driver.findClickableElement('#private-key-box');
-        await driver.fill('#private-key-box', testPrivateKey2);
+        await driver.pasteIntoField('#private-key-box', testPrivateKey2);
         await driver.clickElement(
           '[data-testid="import-account-confirm-button"]',
         );
@@ -356,7 +356,7 @@ describe('Import flow @no-mmi', function () {
 
         fileInput.sendKeys(importJsonFile);
 
-        await driver.fill('#json-password-box', 'foobarbazqux');
+        await driver.pasteIntoField('#json-password-box', 'foobarbazqux');
         await driver.clickElement(
           '[data-testid="import-account-confirm-button"]',
         );
@@ -414,7 +414,7 @@ describe('Import flow @no-mmi', function () {
 
         // enter private key
         await driver.findClickableElement('#private-key-box');
-        await driver.fill('#private-key-box', testPrivateKey);
+        await driver.pasteIntoField('#private-key-box', testPrivateKey);
         await driver.clickElement(
           '[data-testid="import-account-confirm-button"]',
         );

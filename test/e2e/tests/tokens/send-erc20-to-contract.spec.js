@@ -35,7 +35,7 @@ describe('Send ERC20 token to contract address', function () {
         await driver.clickElement('[data-testid="coin-overview-send"]');
 
         // Type contract address
-        await driver.fill(
+        await driver.pasteIntoField(
           'input[placeholder="Enter public address (0x) or domain name"]',
           contractAddress,
         );

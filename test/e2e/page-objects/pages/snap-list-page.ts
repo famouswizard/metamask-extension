@@ -58,7 +58,7 @@ class SnapListPage {
 
     console.log(`Fill confirmation input to confirm snap removal`);
     await this.driver.waitForSelector(this.removeSnapConfirmationInput);
-    await this.driver.fill(this.removeSnapConfirmationInput, snapName);
+    await this.driver.pasteIntoField(this.removeSnapConfirmationInput, snapName);
     await this.driver.clickElementAndWaitToDisappear(
       this.removeSnapConfirmButton,
     );

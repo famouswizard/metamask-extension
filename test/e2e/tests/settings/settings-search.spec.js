@@ -32,7 +32,7 @@ describe('Settings Search', function () {
         await openMenuSafe(driver);
 
         await driver.clickElement({ text: 'Settings', tag: 'div' });
-        await driver.fill('#search-settings', settingsSearch.general);
+        await driver.pasteIntoField('#search-settings', settingsSearch.general);
 
         const page = 'General';
         await driver.clickElement({ text: page, tag: 'span' });
@@ -57,7 +57,7 @@ describe('Settings Search', function () {
         await openMenuSafe(driver);
 
         await driver.clickElement({ text: 'Settings', tag: 'div' });
-        await driver.fill('#search-settings', settingsSearch.advanced);
+        await driver.pasteIntoField('#search-settings', settingsSearch.advanced);
 
         // Check if element redirects to the correct page
         const page = 'Advanced';
@@ -83,7 +83,7 @@ describe('Settings Search', function () {
         await openMenuSafe(driver);
 
         await driver.clickElement({ text: 'Settings', tag: 'div' });
-        await driver.fill('#search-settings', settingsSearch.contacts);
+        await driver.pasteIntoField('#search-settings', settingsSearch.contacts);
 
         // Check if element redirects to the correct page
         const page = 'Contacts';
@@ -109,7 +109,7 @@ describe('Settings Search', function () {
         await openMenuSafe(driver);
 
         await driver.clickElement({ text: 'Settings', tag: 'div' });
-        await driver.fill('#search-settings', settingsSearch.security);
+        await driver.pasteIntoField('#search-settings', settingsSearch.security);
 
         // Check if element redirects to the correct page
         const page = 'Security';
@@ -135,7 +135,7 @@ describe('Settings Search', function () {
         await openMenuSafe(driver);
 
         await driver.clickElement({ text: 'Settings', tag: 'div' });
-        await driver.fill('#search-settings', settingsSearch.experimental);
+        await driver.pasteIntoField('#search-settings', settingsSearch.experimental);
 
         // Check if element redirects to the correct page
         const page = 'Experimental';
@@ -161,7 +161,7 @@ describe('Settings Search', function () {
         await openMenuSafe(driver);
 
         await driver.clickElement({ text: 'Settings', tag: 'div' });
-        await driver.fill('#search-settings', settingsSearch.about);
+        await driver.pasteIntoField('#search-settings', settingsSearch.about);
 
         // Check if element redirects to the correct page
         const page = 'About';
@@ -187,7 +187,7 @@ describe('Settings Search', function () {
         await openMenuSafe(driver);
 
         await driver.clickElement({ text: 'Settings', tag: 'div' });
-        await driver.fill('#search-settings', 'Lorem ipsum');
+        await driver.pasteIntoField('#search-settings', 'Lorem ipsum');
 
         const found = await driver.isElementPresent({
           text: 'No matching results found',

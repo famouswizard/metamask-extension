@@ -37,7 +37,7 @@ describe('Create token, approve token and approve token without gas', function (
 
         await driver.clickElement({ text: 'Import', tag: 'button' });
         await clickNestedButton(driver, 'Custom token');
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="import-tokens-modal-custom-address"]',
           contractAddress,
         );

@@ -123,7 +123,7 @@ describe('Create BTC Account', function (this: Suite) {
 
         await openSRPRevealQuiz(driver);
         await completeSRPRevealQuiz(driver);
-        await driver.fill('[data-testid="input-password"]', WALLET_PASSWORD);
+        await driver.pasteIntoField('[data-testid="input-password"]', WALLET_PASSWORD);
         await driver.press('[data-testid="input-password"]', driver.Key.ENTER);
         await tapAndHoldToRevealSRP(driver);
         const seedPhrase = await (
@@ -149,11 +149,11 @@ describe('Create BTC Account', function (this: Suite) {
           seedPhrase,
         );
 
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="create-vault-password"]',
           WALLET_PASSWORD,
         );
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="create-vault-confirm-password"]',
           WALLET_PASSWORD,
         );

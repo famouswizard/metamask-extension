@@ -46,7 +46,7 @@ async function loadNewAccount() {
       await driver.clickElement(
         '[data-testid="multichain-account-menu-popover-add-account"]',
       );
-      await driver.fill('[placeholder="Account 2"]', '2nd account');
+      await driver.pasteIntoField('[placeholder="Account 2"]', '2nd account');
       await driver.clickElement({ text: 'Add account', tag: 'button' });
       await driver.waitForSelector({
         css: '.currency-display-component__text',
@@ -72,7 +72,7 @@ async function confirmTx() {
 
       await openActionMenuAndStartSendFlow(driver);
 
-      await driver.fill(
+      await driver.pasteIntoField(
         'input[placeholder="Enter public address (0x) or domain name"]',
         '0x2f318C334780961FB129D2a6c30D0763d9a5C970',
       );

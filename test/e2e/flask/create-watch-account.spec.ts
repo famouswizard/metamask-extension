@@ -46,7 +46,7 @@ async function watchEoaAddress(
   address: string = EOA_ADDRESS,
 ): Promise<void> {
   await startCreateWatchAccountFlow(driver, unlockWalletFirst);
-  await driver.fill('input#address-input[type="text"]', address);
+  await driver.pasteIntoField('input#address-input[type="text"]', address);
   await driver.clickElement({ text: 'Watch account', tag: 'button' });
   await driver.clickElement('[data-testid="submit-add-account-with-name"]');
 }
@@ -185,7 +185,7 @@ describe('Account-watcher snap', function (this: Suite) {
           async ({ driver }: { driver: Driver }) => {
             await startCreateWatchAccountFlow(driver);
 
-            await driver.fill('input#address-input[type="text"]', input);
+            await driver.pasteIntoField('input#address-input[type="text"]', input);
             await driver.clickElement({ text: 'Watch account', tag: 'button' });
 
             // error message should be displayed by the snap
@@ -227,7 +227,7 @@ describe('Account-watcher snap', function (this: Suite) {
           );
           await driver.clickElement({ text: 'Import account', tag: 'button' });
           await driver.findClickableElement('#private-key-box');
-          await driver.fill('#private-key-box', PRIVATE_KEY_TWO);
+          await driver.pasteIntoField('#private-key-box', PRIVATE_KEY_TWO);
           await driver.clickElement(
             '[data-testid="import-account-confirm-button"]',
           );

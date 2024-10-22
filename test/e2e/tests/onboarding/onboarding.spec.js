@@ -161,11 +161,11 @@ describe('MetaMask onboarding @no-mmi', function () {
         await driver.clickElement('[data-testid="metametrics-no-thanks"]');
 
         // Fill in confirm password field with incorrect password
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="create-password-new"]',
           WALLET_PASSWORD,
         );
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="create-password-confirm"]',
           wrongTestPassword,
         );
@@ -229,11 +229,11 @@ describe('MetaMask onboarding @no-mmi', function () {
         await driver.clickElement('[data-testid="metametrics-no-thanks"]');
 
         // Fill in confirm password field with correct password
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="create-password-new"]',
           WALLET_PASSWORD,
         );
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="create-password-confirm"]',
           WALLET_PASSWORD,
         );
@@ -291,15 +291,15 @@ describe('MetaMask onboarding @no-mmi', function () {
             '.multichain-network-list-menu-content-wrapper__dialog',
           );
 
-          await driver.fill(
+          await driver.pasteIntoField(
             '[data-testid="network-form-network-name"]',
             networkName,
           );
-          await driver.fill(
+          await driver.pasteIntoField(
             '[data-testid="network-form-chain-id"]',
             chainId.toString(),
           );
-          await driver.fill(
+          await driver.pasteIntoField(
             '[data-testid="network-form-ticker-input"]',
             currencySymbol,
           );

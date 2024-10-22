@@ -24,7 +24,7 @@ describe('Reveal SRP through settings', function () {
       async ({ driver }) => {
         await passwordUnlockOpenSRPRevealQuiz(driver);
         await completeSRPRevealQuiz(driver);
-        await driver.fill('#password-box', wrongTestPassword);
+        await driver.pasteIntoField('#password-box', wrongTestPassword);
         await driver.press('#password-box', driver.Key.ENTER);
         const passwordErrorIsDisplayed = await driver.isElementPresent({
           css: '.mm-help-text',
@@ -46,7 +46,7 @@ describe('Reveal SRP through settings', function () {
         await completeSRPRevealQuiz(driver);
 
         // enter password
-        await driver.fill('#password-box', testPassword);
+        await driver.pasteIntoField('#password-box', testPassword);
         await driver.press('#password-box', driver.Key.ENTER);
 
         await tapAndHoldToRevealSRP(driver);
@@ -110,7 +110,7 @@ describe('Reveal SRP through settings', function () {
         await driver.clickElement('[data-testid="srp-quiz-continue"]');
 
         // enter password
-        await driver.fill('#password-box', testPassword);
+        await driver.pasteIntoField('#password-box', testPassword);
         await driver.press('#password-box', driver.Key.ENTER);
 
         // tap and hold to reveal

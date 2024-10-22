@@ -132,7 +132,7 @@ describe('Increase Token Allowance', function () {
       '[data-testid="multichain-account-menu-popover-add-account"]',
     );
 
-    await driver.fill('[placeholder="Account 2"]', newAccountName);
+    await driver.pasteIntoField('[placeholder="Account 2"]', newAccountName);
     await driver.clickElement({ text: 'Add account', tag: 'button' });
     await driver.findElement({
       css: '[data-testid="account-menu-icon"]',

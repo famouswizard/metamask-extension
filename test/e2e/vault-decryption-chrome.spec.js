@@ -160,7 +160,7 @@ async function closePopoverIfPresent(driver) {
 async function getSRP(driver) {
   await openSRPRevealQuiz(driver);
   await completeSRPRevealQuiz(driver);
-  await driver.fill('[data-testid="input-password"]', WALLET_PASSWORD);
+  await driver.pasteIntoField('[data-testid="input-password"]', WALLET_PASSWORD);
   await driver.press('[data-testid="input-password"]', driver.Key.ENTER);
   await tapAndHoldToRevealSRP(driver);
   return (await driver.findElement('[data-testid="srp_text"]')).getText();
@@ -209,7 +209,7 @@ describe('Vault Decryptor Page', function () {
         await inputField.press(extensionLogFile);
 
         // fill in the password
-        await driver.fill('#passwordinput', WALLET_PASSWORD);
+        await driver.pasteIntoField('#passwordinput', WALLET_PASSWORD);
         // decrypt
         await driver.clickElement('.decrypt');
         const decrypted = await driver.findElement('.content div div div');
@@ -276,10 +276,10 @@ describe('Vault Decryptor Page', function () {
         }
 
         await driver.clickElement('#radio-textinput');
-        await driver.fill('#textinput', JSON.stringify(vaultObj));
+        await driver.pasteIntoField('#textinput', JSON.stringify(vaultObj));
 
         // fill in the password
-        await driver.fill('#passwordinput', WALLET_PASSWORD);
+        await driver.pasteIntoField('#passwordinput', WALLET_PASSWORD);
 
         // decrypt
         await driver.clickElement('.decrypt');

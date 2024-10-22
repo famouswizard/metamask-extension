@@ -80,7 +80,7 @@ class AccountListPage {
     console.log(`Adding new account with custom label: ${customLabel}`);
     await this.driver.clickElement(this.createAccountButton);
     await this.driver.clickElement(this.addEthereumAccountButton);
-    await this.driver.fill(this.accountNameInput, customLabel);
+    await this.driver.pasteIntoField(this.accountNameInput, customLabel);
     await this.driver.clickElementAndWaitToDisappear(
       this.addAccountConfirmButton,
     );
@@ -95,7 +95,7 @@ class AccountListPage {
     console.log(`Changing account label to: ${newLabel}`);
     await this.driver.clickElement(this.accountMenuButton);
     await this.driver.clickElement(this.editableLabelButton);
-    await this.driver.fill(this.editableLabelInput, newLabel);
+    await this.driver.pasteIntoField(this.editableLabelInput, newLabel);
     await this.driver.clickElement(this.saveAccountLabelButton);
     await this.driver.clickElement(this.closeAccountModalButton);
   }

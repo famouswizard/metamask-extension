@@ -688,9 +688,9 @@ describe('Custom network', function () {
             tag: 'button',
           });
 
-          await driver.fill(selectors.networkNameInputField, 'Gnosis');
-          await driver.fill(selectors.chainIdInputField, TEST_CHAIN_ID);
-          await driver.fill(selectors.tickerInputField, 'XDAI');
+          await driver.pasteIntoField(selectors.networkNameInputField, 'Gnosis');
+          await driver.pasteIntoField(selectors.chainIdInputField, TEST_CHAIN_ID);
+          await driver.pasteIntoField(selectors.tickerInputField, 'XDAI');
 
           // Add rpc url
           const rpcUrlInputDropDown = await driver.waitForSelector(
@@ -801,13 +801,13 @@ describe('Custom network', function () {
             tag: 'button',
           });
 
-          await driver.fill(
+          await driver.pasteIntoField(
             selectors.networkNameInputField,
             'Ethereum mainnet',
           );
 
-          await driver.fill(selectors.chainIdInputField, '1');
-          await driver.fill(selectors.tickerInputField, 'TST');
+          await driver.pasteIntoField(selectors.chainIdInputField, '1');
+          await driver.pasteIntoField(selectors.tickerInputField, 'TST');
 
           // Add rpc url
           const rpcUrlInputDropDown = await driver.waitForSelector(
@@ -901,13 +901,13 @@ describe('Custom network', function () {
             tag: 'button',
           });
 
-          await driver.fill(
+          await driver.pasteIntoField(
             selectors.networkNameInputField,
             inputData.networkName,
           );
 
-          await driver.fill(selectors.chainIdInputField, inputData.chainId);
-          await driver.fill(selectors.tickerInputField, inputData.ticker);
+          await driver.pasteIntoField(selectors.chainIdInputField, inputData.chainId);
+          await driver.pasteIntoField(selectors.tickerInputField, inputData.ticker);
 
           // Add rpc url
           const rpcUrlInputDropDown = await driver.waitForSelector(
@@ -1019,7 +1019,7 @@ async function failCandidateNetworkValidation(driver) {
 
   await networkNameInputEl.fill('cheapETH');
   await chainIDInputEl.fill(toHex(777));
-  await driver.fill('[data-testid="network-form-ticker-input"]', 'cTH');
+  await driver.pasteIntoField('[data-testid="network-form-ticker-input"]', 'cTH');
 
   // Add rpc URL
   const rpcUrlInputDropDown = await driver.waitForSelector(
@@ -1164,7 +1164,7 @@ async function candidateNetworkIsNotValidated(driver) {
 
   await networkNameInputEl.fill('cheapETH');
   await chainIDInputEl.fill(TEST_CHAIN_ID);
-  await driver.fill('[data-testid="network-form-ticker-input"]', 'cTH');
+  await driver.pasteIntoField('[data-testid="network-form-ticker-input"]', 'cTH');
 
   // Add rpc URL
   const rpcUrlInputDropDown = await driver.waitForSelector(

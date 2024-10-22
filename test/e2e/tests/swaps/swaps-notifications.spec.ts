@@ -185,22 +185,22 @@ describe('Swaps - notifications @no-mmi', function () {
         });
         await driver.clickElement('[title="Transaction settings"]');
         await driver.clickElement({ text: 'custom', tag: 'button' });
-        await driver.fill('input[data-testid*="slippage"]', '0');
+        await driver.pasteIntoField('input[data-testid*="slippage"]', '0');
         await checkNotification(driver, {
           title: 'Sourcing zero-slippage providers',
           text: 'There are fewer zero-slippage quote providers which will result in a less competitive quote.',
         });
-        await driver.fill('input[data-testid*="slippage"]', '1');
+        await driver.pasteIntoField('input[data-testid*="slippage"]', '1');
         await checkNotification(driver, {
           title: 'Low slippage',
           text: 'A value this low (1%) may result in a failed swap',
         });
-        await driver.fill('input[data-testid*="slippage"]', '15');
+        await driver.pasteIntoField('input[data-testid*="slippage"]', '15');
         await checkNotification(driver, {
           title: 'High slippage',
           text: 'The slippage entered (15%) is considered very high and may result in a bad rate',
         });
-        await driver.fill('input[data-testid*="slippage"]', '20');
+        await driver.pasteIntoField('input[data-testid*="slippage"]', '20');
         await checkNotification(driver, {
           title: 'Very high slippage',
           text: 'Slippage tolerance must be 15% or less. Anything higher will result in a bad rate.',

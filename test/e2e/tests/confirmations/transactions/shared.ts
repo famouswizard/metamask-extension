@@ -134,7 +134,7 @@ export async function confirmDepositTransactionWithCustomNonce(
   });
 
   await driver.clickElement('.edit-nonce-btn');
-  await driver.fill('[data-testid="custom-nonce-input"]', customNonce);
+  await driver.pasteIntoField('[data-testid="custom-nonce-input"]', customNonce);
   await driver.clickElement({
     text: 'Save',
     tag: 'button',

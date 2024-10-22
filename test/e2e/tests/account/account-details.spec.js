@@ -26,7 +26,7 @@ describe('Show account details', function () {
     }
     await driver.clickElement({ css: 'button', text: tEn('showPrivateKey') });
 
-    await driver.fill('#account-details-authenticate', PASSWORD);
+    await driver.pasteIntoField('#account-details-authenticate', PASSWORD);
     await driver.press('#account-details-authenticate', driver.Key.ENTER);
 
     await driver.holdMouseDownOnElement(
@@ -102,7 +102,7 @@ describe('Show account details', function () {
         await driver.clickElement(
           '[data-testid="multichain-account-menu-popover-add-account"]',
         );
-        await driver.fill('[placeholder="Account 2"]', '2nd account');
+        await driver.pasteIntoField('[placeholder="Account 2"]', '2nd account');
         await driver.clickElement({ text: tEn('addAccount'), tag: 'button' });
         await driver.assertElementNotPresent({
           text: tEn('create'),
@@ -155,7 +155,7 @@ describe('Show account details', function () {
         await driver.clickElement(
           '[data-testid="multichain-account-menu-popover-add-account"]',
         );
-        await driver.fill('[placeholder="Account 2"]', '2nd account');
+        await driver.pasteIntoField('[placeholder="Account 2"]', '2nd account');
         await driver.clickElement({ text: tEn('addAccount'), tag: 'button' });
         await driver.assertElementNotPresent({
           text: tEn('create'),
@@ -193,7 +193,7 @@ describe('Show account details', function () {
         });
 
         // Enter incorrect password
-        await driver.fill('#account-details-authenticate', wrongPassword);
+        await driver.pasteIntoField('#account-details-authenticate', wrongPassword);
         await driver.press('#account-details-authenticate', driver.Key.ENTER);
 
         // Display error when password is incorrect

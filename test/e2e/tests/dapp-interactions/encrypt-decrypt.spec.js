@@ -25,7 +25,7 @@ async function validateEncryptionKey(driver, encryptionKey) {
 }
 
 async function encryptMessage(driver, message) {
-  await driver.fill('#encryptMessageInput', message);
+  await driver.pasteIntoField('#encryptMessageInput', message);
   await driver.clickElement('#encryptButton');
   await driver.waitForSelector({
     css: '#ciphertextDisplay',

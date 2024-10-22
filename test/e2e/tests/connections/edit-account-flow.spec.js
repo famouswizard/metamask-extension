@@ -42,7 +42,7 @@ describe('Edit Accounts Flow', function () {
         await driver.clickElement(
           '[data-testid="multichain-account-menu-popover-add-account"]',
         );
-        await driver.fill('[placeholder="Account 2"]', accountLabel2);
+        await driver.pasteIntoField('[placeholder="Account 2"]', accountLabel2);
         await driver.clickElement({ text: 'Add account', tag: 'button' });
         await driver.clickElement('[data-testid="account-menu-icon"]');
         await driver.clickElement(
@@ -51,7 +51,7 @@ describe('Edit Accounts Flow', function () {
         await driver.clickElement(
           '[data-testid="multichain-account-menu-popover-add-account"]',
         );
-        await driver.fill('[placeholder="Account 3"]', accountLabel3);
+        await driver.pasteIntoField('[placeholder="Account 3"]', accountLabel3);
         await driver.clickElement({ text: 'Add account', tag: 'button' });
         await locateAccountBalanceDOM(driver);
         await driver.clickElement(

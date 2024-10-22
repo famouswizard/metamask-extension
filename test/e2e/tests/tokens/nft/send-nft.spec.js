@@ -29,7 +29,7 @@ describe('Send NFT', function () {
         await driver.clickElement('.nft-item__container');
         // TODO: Update Test when Multichain Send Flow is added
         await driver.clickElement({ text: 'Send', tag: 'button' });
-        await driver.fill(
+        await driver.pasteIntoField(
           'input[placeholder="Enter public address (0x) or domain name"]',
           '0xc427D562164062a23a5cFf596A4a3208e72Acd28',
         );
@@ -103,12 +103,12 @@ describe('Send NFT', function () {
         await driver.clickElement('[data-testid="nft-network-badge"]');
 
         await driver.clickElement({ text: 'Send', tag: 'button' });
-        await driver.fill(
+        await driver.pasteIntoField(
           'input[placeholder="Enter public address (0x) or domain name"]',
           '0xc427D562164062a23a5cFf596A4a3208e72Acd28',
         );
 
-        await driver.fill('input[placeholder="0"]', '1');
+        await driver.pasteIntoField('input[placeholder="0"]', '1');
 
         await driver.clickElement({
           text: 'Continue',
@@ -163,7 +163,7 @@ describe('Send NFT', function () {
 
         await driver.clickElement({ text: 'Send', tag: 'button' });
 
-        await driver.fill(
+        await driver.pasteIntoField(
           'input[placeholder="Enter public address (0x) or domain name"]',
           '0xc427D562164062a23a5cFf596A4a3208e72Acd28',
         );
@@ -171,7 +171,7 @@ describe('Send NFT', function () {
         await driver.assertElementNotPresent(
           '[data-testid="send-page-amount-error"]',
         );
-        await driver.fill('input[placeholder="0"]', '0');
+        await driver.pasteIntoField('input[placeholder="0"]', '0');
         assert.ok(
           await driver.findElement({
             text: '1 token. Cannot send negative or zero amounts of asset.',

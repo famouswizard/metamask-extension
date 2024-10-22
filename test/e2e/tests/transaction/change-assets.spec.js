@@ -274,7 +274,7 @@ describe('Change assets', function () {
         await driver.clickElement(
           '[data-testid="multichain-account-menu-popover-add-account"]',
         );
-        await driver.fill('[placeholder="Account 2"]', 'Account 2');
+        await driver.pasteIntoField('[placeholder="Account 2"]', 'Account 2');
         await driver.clickElement({ text: tEn('addAccount'), tag: 'button' });
 
         // Go back to Account 1
@@ -342,7 +342,7 @@ describe('Change assets', function () {
 
         // Make sure gas is updated by resetting amount and hex data
         // Note: this is needed until the race condition is fixed on the wallet level (issue #25243)
-        await driver.fill('[data-testid="currency-input"]', '2.000042');
+        await driver.pasteIntoField('[data-testid="currency-input"]', '2.000042');
         await hexDataLocator.fill('0x');
         await hexDataLocator.fill('');
 

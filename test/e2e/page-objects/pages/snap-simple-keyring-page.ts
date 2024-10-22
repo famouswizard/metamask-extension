@@ -196,7 +196,7 @@ class SnapSimpleKeyringPage {
         'Approve snap account transaction on Snap Simple Keyring page',
       );
       await this.driver.clickElementUsingMouseMove(this.approveRequestSection);
-      await this.driver.fill(
+      await this.driver.pasteIntoField(
         this.approveRequestIdInput,
         JSON.parse(requestJSON)[0].id,
       );
@@ -206,7 +206,7 @@ class SnapSimpleKeyringPage {
         'Reject snap account transaction on Snap Simple Keyring page',
       );
       await this.driver.clickElementUsingMouseMove(this.rejectRequestSection);
-      await this.driver.fill(
+      await this.driver.pasteIntoField(
         this.rejectRequestIdInput,
         JSON.parse(requestJSON)[0].id,
       );
@@ -241,7 +241,7 @@ class SnapSimpleKeyringPage {
   ): Promise<void> {
     console.log('Confirm add account dialog');
     await this.driver.waitForSelector(this.createSnapAccountName);
-    await this.driver.fill(this.createSnapAccountName, accountName);
+    await this.driver.pasteIntoField(this.createSnapAccountName, accountName);
     await this.driver.clickElement(this.submitAddAccountWithNameButton);
 
     await this.driver.waitForSelector(this.accountCreatedMessage);
@@ -289,7 +289,7 @@ class SnapSimpleKeyringPage {
   async importAccountWithPrivateKey(privateKey: string): Promise<void> {
     console.log('Import account with private key on Snap Simple Keyring page');
     await this.driver.clickElement(this.importAccountSection);
-    await this.driver.fill(this.importAccountPrivateKeyInput, privateKey);
+    await this.driver.pasteIntoField(this.importAccountPrivateKeyInput, privateKey);
     await this.driver.clickElement(this.importAccountButton);
     await this.driver.switchToWindowWithTitle(WINDOW_TITLES.Dialog);
     await this.confirmCreateSnapOnConfirmationScreen();

@@ -41,11 +41,11 @@ describe('Incremental Security', function () {
         await driver.clickElement('[data-testid="metametrics-no-thanks"]');
 
         // create password
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="create-password-new"]',
           'correct horse battery staple',
         );
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="create-password-confirm"]',
           'correct horse battery staple',
         );
@@ -97,7 +97,7 @@ describe('Incremental Security', function () {
         await openDapp(driver);
 
         // sends eth to the current account
-        await driver.fill('#address', publicAddress);
+        await driver.pasteIntoField('#address', publicAddress);
         await driver.clickElement('#send');
 
         await driver.waitForSelector(
@@ -130,7 +130,7 @@ describe('Incremental Security', function () {
         // reveals the Secret Recovery Phrase
         await driver.clickElement('[data-testid="secure-wallet-recommended"]');
 
-        await driver.fill('[placeholder="Password"]', WALLET_PASSWORD);
+        await driver.pasteIntoField('[placeholder="Password"]', WALLET_PASSWORD);
 
         await driver.clickElement({ text: 'Confirm', tag: 'button' });
         await driver.assertElementNotPresent(
@@ -154,9 +154,9 @@ describe('Incremental Security', function () {
         await driver.clickElement('[data-testid="recovery-phrase-next"]');
 
         // can retype the Secret Recovery Phrase
-        await driver.fill('[data-testid="recovery-phrase-input-2"]', chipTwo);
-        await driver.fill('[data-testid="recovery-phrase-input-3"]', chipThree);
-        await driver.fill('[data-testid="recovery-phrase-input-7"]', chipSeven);
+        await driver.pasteIntoField('[data-testid="recovery-phrase-input-2"]', chipTwo);
+        await driver.pasteIntoField('[data-testid="recovery-phrase-input-3"]', chipThree);
+        await driver.pasteIntoField('[data-testid="recovery-phrase-input-7"]', chipSeven);
         await driver.clickElement('[data-testid="recovery-phrase-confirm"]');
 
         // should have the correct amount of eth

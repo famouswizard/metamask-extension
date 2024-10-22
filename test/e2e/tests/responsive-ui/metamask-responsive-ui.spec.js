@@ -31,11 +31,11 @@ describe('MetaMask Responsive UI', function () {
         await driver.clickElement('[data-testid="metametrics-no-thanks"]');
 
         // create password
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="create-password-new"]',
           'correct horse battery staple',
         );
-        await driver.fill(
+        await driver.pasteIntoField(
           '[data-testid="create-password-confirm"]',
           'correct horse battery staple',
         );
@@ -59,9 +59,9 @@ describe('MetaMask Responsive UI', function () {
         await driver.clickElement('[data-testid="recovery-phrase-next"]');
 
         // confirm
-        await driver.fill('[data-testid="recovery-phrase-input-2"]', chipTwo);
-        await driver.fill('[data-testid="recovery-phrase-input-3"]', chipThree);
-        await driver.fill('[data-testid="recovery-phrase-input-7"]', chipSeven);
+        await driver.pasteIntoField('[data-testid="recovery-phrase-input-2"]', chipTwo);
+        await driver.pasteIntoField('[data-testid="recovery-phrase-input-3"]', chipThree);
+        await driver.pasteIntoField('[data-testid="recovery-phrase-input-7"]', chipSeven);
         await driver.clickElement('[data-testid="recovery-phrase-confirm"]');
 
         // complete
@@ -104,8 +104,8 @@ describe('MetaMask Responsive UI', function () {
           TEST_SEED_PHRASE_TWO,
         );
 
-        await driver.fill('#password', 'correct horse battery staple');
-        await driver.fill('#confirm-password', 'correct horse battery staple');
+        await driver.pasteIntoField('#password', 'correct horse battery staple');
+        await driver.pasteIntoField('#confirm-password', 'correct horse battery staple');
         await driver.press('#confirm-password', driver.Key.ENTER);
 
         // balance renders
@@ -129,12 +129,12 @@ describe('MetaMask Responsive UI', function () {
         // Send ETH from inside MetaMask
         // starts to send a transaction
         await openActionMenuAndStartSendFlow(driver);
-        await driver.fill(
+        await driver.pasteIntoField(
           'input[placeholder="Enter public address (0x) or domain name"]',
           '0x2f318C334780961FB129D2a6c30D0763d9a5C970',
         );
 
-        const inputAmount = await driver.fill('input[placeholder="0"]', '1');
+        const inputAmount = await driver.pasteIntoField('input[placeholder="0"]', '1');
 
         const inputValue = await inputAmount.getProperty('value');
         assert.equal(inputValue, '1');

@@ -35,7 +35,7 @@ describe('Transfer custom tokens @no-mmi', function () {
         });
         await driver.delay(500);
         await driver.clickElement('[data-testid="eth-overview-send"]');
-        await driver.fill(
+        await driver.pasteIntoField(
           'input[placeholder="Enter public address (0x) or domain name"]',
           recipientAddress,
         );
@@ -43,7 +43,7 @@ describe('Transfer custom tokens @no-mmi', function () {
           css: '.ens-input__selected-input__title',
           text: '0x2f318...5C970',
         });
-        await driver.fill('input[placeholder="0"]', '1');
+        await driver.pasteIntoField('input[placeholder="0"]', '1');
         await driver.clickElement({ text: 'Continue', tag: 'button' });
 
         // check transaction details

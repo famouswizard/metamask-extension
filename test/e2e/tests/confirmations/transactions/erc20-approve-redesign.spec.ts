@@ -128,7 +128,7 @@ export async function importTST(driver: Driver) {
     text: 'Custom token',
   });
 
-  await driver.fill(
+  await driver.pasteIntoField(
     '[data-testid="import-tokens-modal-custom-address"]',
     '0x581c3C1A2A4EBDE2A0Df29B5cf4c116E42945947',
   );

@@ -69,7 +69,7 @@ describe('Test Snap Interactive UI', function () {
         await driver.delay(500);
 
         // fill in thr example input
-        await driver.fill('#example-input', 'foo bar');
+        await driver.pasteIntoField('#example-input', 'foo bar');
 
         // try to click on dropdown
         await driver.waitForSelector('[data-testid="snaps-dropdown"]');

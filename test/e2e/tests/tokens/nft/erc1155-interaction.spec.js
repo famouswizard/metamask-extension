@@ -43,8 +43,8 @@ describe('ERC1155 NFTs testdapp interaction', function () {
         await driver.findClickableElement('#deployButton');
 
         // Mint
-        await driver.fill('#batchMintTokenIds', '1, 2, 3');
-        await driver.fill('#batchMintIdAmounts', '1, 1, 1000000000000000');
+        await driver.pasteIntoField('#batchMintTokenIds', '1, 2, 3');
+        await driver.pasteIntoField('#batchMintIdAmounts', '1, 1, 1000000000000000');
         await driver.clickElement('#batchMintButton');
 
         // Notification
@@ -85,7 +85,7 @@ describe('ERC1155 NFTs testdapp interaction', function () {
 
         // switch to Dapp
         await driver.switchToWindowWithTitle(WINDOW_TITLES.TestDApp);
-        await driver.fill('#watchAssetInput', '1');
+        await driver.pasteIntoField('#watchAssetInput', '1');
         await driver.clickElement('#watchAssetButton');
 
         await driver.switchToWindowWithTitle(WINDOW_TITLES.Dialog);
@@ -120,8 +120,8 @@ describe('ERC1155 NFTs testdapp interaction', function () {
 
         await openDapp(driver, contract);
 
-        await driver.fill('#batchTransferTokenIds', '1, 2, 3');
-        await driver.fill('#batchTransferTokenAmounts', '1, 1, 1000000000000');
+        await driver.pasteIntoField('#batchTransferTokenIds', '1, 2, 3');
+        await driver.pasteIntoField('#batchTransferTokenAmounts', '1, 1, 1000000000000');
         await driver.clickElement('#batchTransferFromButton');
 
         await driver.switchToWindowWithTitle(WINDOW_TITLES.Dialog);

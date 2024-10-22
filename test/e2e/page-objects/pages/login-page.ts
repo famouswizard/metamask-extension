@@ -47,7 +47,7 @@ class LoginPage {
    */
   async loginToHomepage(password: string = WALLET_PASSWORD): Promise<void> {
     console.log(`On login page, Login to homepage `);
-    await this.driver.fill(this.passwordInput, password);
+    await this.driver.pasteIntoField(this.passwordInput, password);
     await this.driver.clickElement(this.unlockButton);
   }
 

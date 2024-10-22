@@ -31,8 +31,8 @@ describe('Import ERC1155 NFT', function () {
         await driver.clickElement({ text: 'Import NFT', tag: 'button' });
 
         // Enter a valid NFT that belongs to user and check success message appears
-        await driver.fill('#address', contractAddress);
-        await driver.fill('#token-id', '1');
+        await driver.pasteIntoField('#address', contractAddress);
+        await driver.pasteIntoField('#token-id', '1');
         await driver.clickElement(
           '[data-testid="import-nfts-modal-import-button"]',
         );
@@ -79,8 +79,8 @@ describe('Import ERC1155 NFT', function () {
         await driver.clickElement({ text: 'Import NFT', tag: 'button' });
 
         // Enter an NFT that not belongs to user with a valid address and an invalid token id
-        await driver.fill('#address', contractAddress);
-        await driver.fill('#token-id', '4');
+        await driver.pasteIntoField('#address', contractAddress);
+        await driver.pasteIntoField('#token-id', '4');
         await driver.clickElement(
           '[data-testid="import-nfts-modal-import-button"]',
         );

@@ -44,8 +44,8 @@ class ResetPasswordPage {
   async resetPassword(seedPhrase: string, newPassword: string): Promise<void> {
     console.log(`Resetting password with new password: ${newPassword}`);
     await this.driver.pasteIntoField(this.seedPhraseInput, seedPhrase);
-    await this.driver.fill(this.passwordInput, newPassword);
-    await this.driver.fill(this.confirmPasswordInput, newPassword);
+    await this.driver.pasteIntoField(this.passwordInput, newPassword);
+    await this.driver.pasteIntoField(this.confirmPasswordInput, newPassword);
     await this.driver.clickElement(this.restoreButton);
   }
 }

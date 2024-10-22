@@ -27,12 +27,12 @@ describe('Token List', function () {
   const importToken = async (driver: Driver) => {
     await driver.clickElement({ text: 'Import', tag: 'button' });
     await clickNestedButton(driver, 'Custom token');
-    await driver.fill(
+    await driver.pasteIntoField(
       '[data-testid="import-tokens-modal-custom-address"]',
       tokenAddress,
     );
     await driver.waitForSelector('p.mm-box--color-error-default');
-    await driver.fill(
+    await driver.pasteIntoField(
       '[data-testid="import-tokens-modal-custom-symbol"]',
       symbol,
     );

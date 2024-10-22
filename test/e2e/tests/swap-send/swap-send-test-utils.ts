@@ -20,7 +20,7 @@ export class SwapSendPage {
   }
 
   fillRecipientAddressInput = async (address: string) => {
-    await this.driver.fill(
+    await this.driver.pasteIntoField(
       'input[placeholder="Enter public address (0x) or domain name"]',
       address,
     );
@@ -120,7 +120,7 @@ export class SwapSendPage {
 
   fillAmountInput = async (amount: string) => {
     await this.driver.waitForSelector('[data-testid="currency-input"]');
-    await this.driver.fill('[data-testid="currency-input"]', amount);
+    await this.driver.pasteIntoField('[data-testid="currency-input"]', amount);
   };
 
   verifyMaxButtonClick = async (

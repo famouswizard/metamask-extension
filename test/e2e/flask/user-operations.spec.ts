@@ -59,8 +59,8 @@ async function createSnapAccount(
 ) {
   await driver.switchToWindowWithTitle(WINDOW_TITLES.ERC4337Snap);
   await driver.clickElement({ text: 'Create account' });
-  await driver.fill('#create-account-private-key', privateKey);
-  await driver.fill('#create-account-salt', salt);
+  await driver.pasteIntoField('#create-account-private-key', privateKey);
+  await driver.pasteIntoField('#create-account-salt', salt);
   await driver.clickElement({ text: 'Create Account', tag: 'button' });
   await driver.switchToWindowWithTitle(WINDOW_TITLES.Dialog);
   await driver.clickElement({ text: 'Create', tag: 'button' });
@@ -88,20 +88,20 @@ async function setSnapConfig(
   await driver.switchToWindowWithTitle('Account Abstraction Snap');
   await driver.clickElement('[data-testid="chain-select"]');
   await driver.clickElement('[data-testid="chain-id-1337"]');
-  await driver.fill('[data-testid="bundlerUrl"]', bundlerUrl);
-  await driver.fill('[data-testid="entryPoint"]', entrypoint);
-  await driver.fill(
+  await driver.pasteIntoField('[data-testid="bundlerUrl"]', bundlerUrl);
+  await driver.pasteIntoField('[data-testid="entryPoint"]', entrypoint);
+  await driver.pasteIntoField(
     '[data-testid="simpleAccountFactory"]',
     simpleAccountFactory,
   );
   if (paymaster) {
-    await driver.fill(
+    await driver.pasteIntoField(
       '[data-testid="customVerifyingPaymasterAddress"]',
       paymaster,
     );
   }
   if (paymasterSK) {
-    await driver.fill(
+    await driver.pasteIntoField(
       '[data-testid="customVerifyingPaymasterSK"]',
       paymasterSK,
     );

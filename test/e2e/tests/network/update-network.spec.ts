@@ -76,7 +76,7 @@ describe('Update Network:', function (this: Suite) {
         );
 
         // Update the network name
-        await driver.fill(
+        await driver.pasteIntoField(
           selectors.networkNameInputField,
           inputData.networkName,
         );
