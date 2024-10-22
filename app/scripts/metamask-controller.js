@@ -2129,6 +2129,7 @@ export default class MetamaskController extends EventEmitter {
       this.controllerMessenger.getRestricted({
         name: BRIDGE_STATUS_CONTROLLER_NAME,
         allowedActions: [
+          'AccountsController:getSelectedAccount',
           'NetworkController:getSelectedNetworkClient',
           'NetworkController:findNetworkClientIdByChainId',
         ],
