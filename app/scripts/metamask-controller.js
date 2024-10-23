@@ -2135,10 +2135,9 @@ export default class MetamaskController extends EventEmitter {
           'NetworkController:getSelectedNetworkClient',
           'NetworkController:findNetworkClientIdByChainId',
         ],
-        allowedEvents: ['TransactionController:transactionConfirmed'],
+        allowedEvents: [],
       });
     this.bridgeStatusController = new BridgeStatusController({
-      provider: this.provider,
       messenger: bridgeStatusControllerMessenger,
     });
 
