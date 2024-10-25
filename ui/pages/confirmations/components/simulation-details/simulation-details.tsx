@@ -61,17 +61,23 @@ const ErrorContent: React.FC<{ error: SimulationError }> = ({ error }) => {
   function getMessage() {
     return error.code === SimulationErrorCode.Reverted
       ? t('simulationDetailsTransactionReverted')
-      : t('simulationDetailsFailed');
+      : t('simulationDetailsUnavailable');
   }
 
   return (
     <Text
-      color={TextColor.warningDefault}
+      color={
+        error.code === SimulationErrorCode.Reverted
+          ? TextColor.warningDefault
+          : TextColor.textDefault
+      }
       variant={TextVariant.bodyMd}
       display={Display.Flex}
       alignItems={AlignItems.center}
     >
-      <Icon name={IconName.Warning} marginInlineEnd={1} />
+      {error.code === SimulationErrorCode.Reverted && (
+        <Icon name={IconName.Warning} marginInlineEnd={1} />
+      )}
       {getMessage()}
     </Text>
   );
@@ -84,7 +90,7 @@ const EmptyContent: React.FC = () => {
   const t = useI18nContext();
   return (
     <Text color={TextColor.textAlternative} variant={TextVariant.bodyMd}>
-      {t('simulationDetailsNoBalanceChanges')}
+      {t('simulationDetailsNoChanges')}
     </Text>
   );
 };
@@ -217,9 +223,18 @@ export const SimulationDetails: React.FC<SimulationDetailsProps> = ({
   }
 
   if (error) {
+    const inHeaderProp = error.code !== SimulationErrorCode.Reverted && {
+      inHeader: <ErrorContent error={error} />,
+    };
+
     return (
-      <SimulationDetailsLayout isTransactionsRedesign={isTransactionsRedesign}>
-        <ErrorContent error={error} />
+      <SimulationDetailsLayout
+        isTransactionsRedesign={isTransactionsRedesign}
+        {...inHeaderProp}
+      >
+        {error.code === SimulationErrorCode.Reverted && (
+          <ErrorContent error={error} />
+        )}
       </SimulationDetailsLayout>
     );
   }
@@ -228,9 +243,10 @@ export const SimulationDetails: React.FC<SimulationDetailsProps> = ({
   const empty = balanceChanges.length === 0;
   if (empty) {
     return (
-      <SimulationDetailsLayout isTransactionsRedesign={isTransactionsRedesign}>
-        <EmptyContent />
-      </SimulationDetailsLayout>
+      <SimulationDetailsLayout
+        isTransactionsRedesign={isTransactionsRedesign}
+        inHeader={<EmptyContent />}
+      />
     );
   }
 
