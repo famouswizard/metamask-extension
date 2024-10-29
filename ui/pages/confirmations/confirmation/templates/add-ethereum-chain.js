@@ -1,11 +1,14 @@
 import { providerErrors } from '@metamask/rpc-errors';
 import React from 'react';
 import { RpcEndpointType } from '@metamask/network-controller';
-
 import {
   infuraProjectId,
   DEPRECATED_NETWORKS,
 } from '../../../../../shared/constants/network';
+import {
+  DEFAULT_ROUTE,
+  ONBOARDING_PRIVACY_SETTINGS_ROUTE,
+} from '../../../../helpers/constants/routes';
 import {
   Severity,
   TypographyVariant,
@@ -16,7 +19,6 @@ import {
   JustifyContent,
   BackgroundColor,
 } from '../../../../helpers/constants/design-system';
-import { DEFAULT_ROUTE } from '../../../../helpers/constants/routes';
 import ZENDESK_URLS from '../../../../helpers/constants/zendesk-url';
 import { jsonRpcRequest } from '../../../../../shared/modules/rpc.utils';
 import { BannerAlertSeverity } from '../../../../components/component-library';
@@ -557,7 +559,13 @@ function getValues(pendingApproval, t, actions, history, data) {
           nickname: pendingApproval.requestData.chainName,
         });
 
-        history.push(DEFAULT_ROUTE);
+        const locationPath = document.location.hash.replace('#', '/');
+        const isOnboardingRoute =
+          locationPath === ONBOARDING_PRIVACY_SETTINGS_ROUTE;
+
+        if (!isOnboardingRoute) {
+          history.push(DEFAULT_ROUTE);
+        }
       }
       return [];
     },
